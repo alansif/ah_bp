@@ -63,8 +63,10 @@ namespace bp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string Url = System.Configuration.ConfigurationManager.AppSettings["Url"];
             SHDocVw.InternetExplorer ie = new SHDocVw.InternetExplorer();
-            ie.Navigate("http://192.168.11.5/CHIS/Login.aspx?ReturnUrl=%2fCHIS%2fRoomRecord%2fXDT.aspx%3fmac%3d00%253a22%253a19%253a30%253a21%253a9B%26type%3d1&mac=00%3a22%3a19%3a30%3a21%3a9B&type=1");
+//            ie.Navigate("http://192.168.11.5/CHIS/Login.aspx?ReturnUrl=%2fCHIS%2fRoomRecord%2fXDT.aspx%3fmac%3d00%253a22%253a19%253a30%253a21%253a9B%26type%3d1&mac=00%3a22%3a19%3a30%3a21%3a9B&type=1");
+            ie.Navigate(Url);
             ie.Visible = true;
             OpenComm();
         }
@@ -76,7 +78,7 @@ namespace bp
             {
                 try
                 {
-                    mshtml.HTMLDocument doc = ie.Document;
+                    MSHTML.HTMLDocument doc = ie.Document;
                     object oFrameIndex = 0;
                     var f = (doc.frames.item(ref oFrameIndex)).document;
                     f.getElementById("DefaultContent_Console_2001001_1").innerText = bp1;
@@ -90,15 +92,15 @@ namespace bp
             }
         }
 
-        private void traverseNodes(mshtml.IHTMLElement parentNode, ref string cont)
+        private void traverseNodes(MSHTML.IHTMLElement parentNode, ref string cont)
         {
             if (parentNode.innerText != null)
                 cont += parentNode.innerText;
-            mshtml.IHTMLElementCollection nodes = (mshtml.IHTMLElementCollection)parentNode.children;
+            MSHTML.IHTMLElementCollection nodes = (MSHTML.IHTMLElementCollection)parentNode.children;
             IEnumerator ienum = nodes.GetEnumerator();
             while (ienum.MoveNext())
             {
-                mshtml.IHTMLElement node = (mshtml.IHTMLElement)ienum.Current;
+                MSHTML.IHTMLElement node = (MSHTML.IHTMLElement)ienum.Current;
                 traverseNodes(node, ref cont);
             }
         }
