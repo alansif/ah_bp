@@ -17,6 +17,10 @@ namespace bp
         public Form1()
         {
             InitializeComponent();
+            if (!System.IO.Directory.Exists("log"))
+            {
+                System.IO.Directory.CreateDirectory("log");
+            }
             Trace.Listeners.Add(new System.Diagnostics.TextWriterTraceListener("log\\" + DateTime.Now.ToString("yyyyMMdd") + ".log"));
             Trace.Listeners.Add(new System.Diagnostics.TextWriterTraceListener(Console.Out));
         }
@@ -65,7 +69,6 @@ namespace bp
         {
             string Url = System.Configuration.ConfigurationManager.AppSettings["Url"];
             SHDocVw.InternetExplorer ie = new SHDocVw.InternetExplorer();
-//            ie.Navigate("http://192.168.11.5/CHIS/Login.aspx?ReturnUrl=%2fCHIS%2fRoomRecord%2fXDT.aspx%3fmac%3d00%253a22%253a19%253a30%253a21%253a9B%26type%3d1&mac=00%3a22%3a19%3a30%3a21%3a9B&type=1");
             ie.Navigate(Url);
             ie.Visible = true;
             OpenComm();
@@ -73,7 +76,8 @@ namespace bp
 
         private static void SendToCHIS(string bp1, string bp2)
         {
-            SHDocVw.InternetExplorer ie = getInternetExploer("http://192.168.11.5/");
+            string Url = System.Configuration.ConfigurationManager.AppSettings["Url"];
+            SHDocVw.InternetExplorer ie = getInternetExploer(Url);
             if (ie != null)
             {
                 try

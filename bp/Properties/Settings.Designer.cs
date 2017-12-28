@@ -37,9 +37,7 @@ namespace bp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.11.5/CHIS/Login.aspx?ReturnUrl=%2fCHIS%2fRoomRecord%2fXDT.aspx%3fm" +
-            "ac%3d00%253a22%253a19%253a30%253a21%253a9B%26type%3d1&mac=00%3a22%3a19%3a30%3a21" +
-            "%3a9B&type=1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.11.5/CHIS")]
         public string Url {
             get {
                 return ((string)(this["Url"]));

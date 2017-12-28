@@ -6,7 +6,7 @@
       <Value Profile="(Default)">COM3</Value>
     </Setting>
     <Setting Name="Url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://192.168.11.5/CHIS/Login.aspx?ReturnUrl=%2fCHIS%2fRoomRecord%2fXDT.aspx%3fmac%3d00%253a22%253a19%253a30%253a21%253a9B%26type%3d1&amp;mac=00%3a22%3a19%3a30%3a21%3a9B&amp;type=1</Value>
+      <Value Profile="(Default)">http://192.168.11.5/CHIS</Value>
     </Setting>
   </Settings>
 </SettingsFile>
