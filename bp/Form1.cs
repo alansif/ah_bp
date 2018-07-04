@@ -94,6 +94,10 @@ namespace bp
                     MessageBox.Show("请先将CHIS转到内科页面再测量血压");
                 }
             }
+            else
+            {
+                MessageBox.Show("没有找到IE Url：" + Url);
+            }
         }
 
         private void traverseNodes(MSHTML.IHTMLElement parentNode, ref string cont)
@@ -126,6 +130,11 @@ namespace bp
                 }
             }
             return null;
+        }
+
+        private void textBox4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SendToCHIS("0", "1");
         }
     }
 }

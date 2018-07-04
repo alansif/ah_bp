@@ -62,6 +62,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(338, 25);
             this.textBox4.TabIndex = 4;
+            this.textBox4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textBox4_MouseDoubleClick);
             // 
             // button2
             // 
