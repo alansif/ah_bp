@@ -87,6 +87,7 @@ namespace bp
                     var f = (doc.frames.item(ref oFrameIndex)).document;
                     f.getElementById("DefaultContent_Console_2001001_1").innerText = bp1;
                     f.getElementById("DefaultContent_Console_2001001_2").innerText = bp2;
+                    f.getElementById("DefaultContent_Console_2001001_2").blur();    //用来触发页面js里的GetConsole2001001()
                     //                traverseNodes(f.documentElement, ref cont);
                 }
                 catch (Exception)
